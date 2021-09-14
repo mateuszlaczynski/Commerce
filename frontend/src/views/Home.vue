@@ -1,10 +1,11 @@
 <template>
 
-<div style="text-align:center">
-
+<div style="text-align:center;">
       <div class="card" v-for="product in productList" v-bind:key="product.id">
+        <router-link :to="product.get_absolute_url" style="color:black;text-decoration:none;">
           <img class="card-image" :src="product.get_image"/>
           <p>{{product.name}} {{product.price}}$</p>
+          </router-link>
     </div>
 </div>
 
@@ -39,20 +40,5 @@ export default {
 </script>
 
 <style>
-.card {
-  display: inline-block;
-  padding: 15px;
-}
-.card:hover {
-  border: solid 1px black;
-  padding: 14px;
-  cursor: pointer;
-}
 
-.card-image {
-  max-width: 300px;
-  max-height: 300px;
-  min-width: 300px;
-  min-height: 300px;
-}
 </style>

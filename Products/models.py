@@ -36,4 +36,4 @@ class Product (models.Model):
         return 'http://127.0.0.1:8000' + self.image.url
 
     def get_absolute_url(self):
-        return f'/{self.category}/{self.slug}/'
+        return f'/{self.category.slug}/{self.slug}/'
