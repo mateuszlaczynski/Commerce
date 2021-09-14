@@ -1,0 +1,7 @@
+pip install django
+pip install pillow
+pip install djoser
+pip install slugify
+pip install django-rest-framework
+pip install django-cors-headers
+npm install axios
