@@ -13,11 +13,6 @@
     <router-view/>
   </div>
   <footer id="footer">
-      <a class="footer-item"><router-link  to="/"> Home </router-link></a>
-      <a class="footer-item"><router-link to="/contact"> Contact us </router-link></a>
-      <a class="footer-item"><router-link to="/about"> About </router-link></a>
-      <a class="footer-item"><router-link to="/about"> About </router-link></a>
-      <a class="footer-item"><router-link to="/about"> About </router-link></a>
       <h5>Mateusz Łączyński &copy; 2021</h5>
   </footer>
 </div>
@@ -31,12 +26,13 @@ body {
 }
 
 #nav {
-  padding: 15px;
   display:inline-block;
   width: 100%;
   text-align:center;
   background-color: #e6e6e6;
   border-bottom: 1px solid black;
+  padding-top:20px;
+  padding-bottom:15px;
 }
 .nav-item {
   padding: 5px;
@@ -60,42 +56,24 @@ body {
 
 
 #footer {
-  padding: 15px;
   width: 100%;
   text-align:center;
   background-color: darkorange;
-  height:100px;
+  height:64px;
   font-weight: bold;
   font-size:22px;
   text-align: center;
   color: #2c3e50;
   border-top: 1px solid black;
+  padding-top:20px;
+  padding-bottom:20px;
 }
-.footer-item {
-  padding: 5px;
-  margin-right:15px;
-  border:none;
-  background-color:darkorange;
-  color:#2c3e50;
-  border-radius:20%;
-}
-#footer a {
-  color: #2c3e50;
-  text-decoration: none;
-  font-size: 22px;
-}
-#footer a:hover {
-  color:  #f2f2f2;
-  text-decoration: pointer;
-}
-#footer a.router-link-exact-active {
-  color:  #f2f2f2;
-}
+
 
 #container {
   padding:25px;
   background-color:#f2f2f2;
-  min-height: 60vh;
+  min-height: 64vh;
 }
 
 .card {
