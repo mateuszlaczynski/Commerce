@@ -1,13 +1,16 @@
 <template>
 <div>
   <nav id="nav">
-      <div style="font-size:35px; padding:5px;"><b>LOREM IPSUM</b></div>
+      <div style="font-size:35px; padding:15px; border-bottom: 1px solid black;"><b>LOREM IPSUM</b></div>
       <button class="nav-item"><router-link  to="/">Home</router-link></button>
       <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
       <button class="nav-item"><router-link to="/about">About</router-link></button>
       <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
-      <button class="nav-item"><a>Koszyk: {{cartTotalLength}}</a></button>
-      
+      <button class="nav-item"><a>Cart: {{cartTotalLength}}</a></button>
+      <form id="search-bar" method="get" action="/search">
+          <input type="text" id="input-bar" placeholder="..." name="query">
+          <button type="submit" class="button-input">Search</button>
+      </form>
 
 
   </nav>
@@ -61,7 +64,6 @@ body {
 #nav {
   display:inline-block;
   width: 100%;
-  text-align:center;
   background-color: #e6e6e6;
   border-bottom: 1px solid black;
   padding-top:20px;
@@ -70,6 +72,7 @@ body {
 .nav-item {
   padding: 5px;
   margin-right:15px;
+  margin-top: 10px;
   border:none;
   background-color:#e6e6e6;
   color:black;
@@ -86,7 +89,21 @@ body {
 #nav a.router-link-exact-active {
   color: darkorange;
 }
-
+#search-bar {
+  float: right;
+  padding: 5px;
+  margin-right:25px;
+  margin-top: 10px;
+  display:inline-block;
+}
+#input-bar {
+  width:175px;
+  height: 20px;
+  font-size:14px;
+  border-radius: 3px;
+  border:none;
+  margin-right:1px;
+}
 
 #footer {
   width: 100%;
@@ -129,13 +146,11 @@ body {
   background-color:darkorange;
   padding: 10px;
   border: solid 1px black;
-  width:130px;
   margin: 5px;
+  border-radius: 6px;
 }
 .button-success:hover {
-  background-color:white;
-  color: darkorange;
-  border-color: darkorange;
+  background-color:#ff9933;
   cursor: pointer;
 }
 .button-success:disabled {
@@ -143,6 +158,18 @@ body {
   color: gray;
   border-color: gray;
   cursor: default;
+}
+
+.button-input {
+  background-color:green;
+  padding:5px;
+  border: solid 1px #e6e6e6;
+  border-radius: 6px;
+  color: white;
+}
+.button-input:hover {
+  background-color:#009900;
+  cursor: pointer;
 }
 
 

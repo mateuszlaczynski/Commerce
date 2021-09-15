@@ -4,6 +4,7 @@ import Detail from '../views/Detail.vue'
 import Contact from '../views/Contact.vue'
 import Category from '../views/Category.vue'
 import CategoryList from '../views/CategoryList.vue'
+import Search from '../views/Search.vue'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     path:"/categories/",
     name: "CategoryList",
     component: CategoryList
+  },
+  {
+    path: "/search",
+    name: "Search",
+    component: Search
   }
 ]
 

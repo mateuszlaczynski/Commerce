@@ -14,8 +14,8 @@
 
             <label for="quantity"> z 10</label>
 
-            <button @click="addToCart" v-if="quantity >= 1 && quantity <= 10" class="button-success" type="submit">Dodaj do koszyka!</button>
-            <button v-else class="button-success" disabled>Dodaj do koszyka!</button>
+            <button @click="addToCart" v-if="quantity >= 1 && quantity <= 10" class="button-success" type="submit">Add To Cart!</button>
+            <button v-else class="button-success" disabled>Add to Cart!</button>
         </div>
     </div>
 
