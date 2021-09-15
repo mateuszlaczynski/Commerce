@@ -5,8 +5,8 @@
       <button class="nav-item"><router-link  to="/">Home</router-link></button>
       <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
       <button class="nav-item"><router-link to="/about">About</router-link></button>
-      <button class="nav-item"><router-link to="/about">About</router-link></button>
-      <button class="nav-item"><router-link to="/about">About</router-link></button>
+      <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
+
 
   </nav>
   <div id="container" style="height:100%">

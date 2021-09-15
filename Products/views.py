@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .serializers import ProductSerializer
-from .models import Product
+from .serializers import ProductSerializer, CategorySerializer
+from .models import Product, Category
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
@@ -20,4 +20,16 @@ class ProductDetail(APIView):
     def get(self,request, category_slug, product_slug, format=None):
         product = self.get_object(category_slug, product_slug)
         serializer = ProductSerializer(product)
+        return Response(serializer.data)
+
+class CategoryView(APIView):
+    def get(self, request, category_slug, format=None):
+        products = Product.objects.filter(category__slug=category_slug)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+
+class CategoryList(APIView):
+    def get(self,request, format=None):
+        categories = Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
