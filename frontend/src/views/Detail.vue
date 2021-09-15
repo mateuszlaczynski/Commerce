@@ -7,13 +7,14 @@
         <p style="margin:5%; text-align:justify">{{product.description}}</p>
         <div style="text-align:center">
             <button v-if="quantity > 1" style="border-right:0px;" class="input-button" @click="quantity--">-</button>
-            <button v-else class="input-button" disabled>-</button>                    <input type="number" id="quantity" name="quantity" min="1" max="10" :value="quantity">
+            <button v-else class="input-button" disabled>-</button>                    
+            <input type="number" id="quantity" name="quantity" min="1" max="10" :value="quantity">
             <button v-if="quantity < 10" style="border-left:0px;" class="input-button" @click="quantity++">+</button>
             <button v-else class="input-button" disabled>+</button>
 
             <label for="quantity"> z 10</label>
 
-            <button v-if="quantity >= 1 && quantity <= 10" class="button-success" type="submit">Dodaj do koszyka!</button>
+            <button @click="addToCart" v-if="quantity >= 1 && quantity <= 10" class="button-success" type="submit">Dodaj do koszyka!</button>
             <button v-else class="button-success" disabled>Dodaj do koszyka!</button>
         </div>
     </div>
@@ -41,10 +42,23 @@ import axios from "axios"
                 axios.get(`/api/v1/${category_slug}/${product_slug}/`)
                 .then(response => {this.product = response.data})
                 .catch(error => {console.error(error)})
+            },
+            addToCart() {
+                if (isNaN(this.quantity) || this.quantity <1) {
+                    this.quantity = 1
+                }
+
+                const item = {
+                    product: this.product,
+                    quantity: this.quantity,
+                }
+                this.$store.commit('addToCart',item)
             }
         },
+        
     }
 </script>
+
 <style>
 input[type="number"] {
     width: 50px;

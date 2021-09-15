@@ -29,10 +29,11 @@ export default {
   },
   methods: {
     getProductList() {
-      const category_slug = this.$route.params.category_slug
-      axios
-      .get(`api/v1/${category_slug}/`)
-      .then(response => {
+        const category_slug = this.$route.params.category_slug
+        
+        axios
+        .get(`api/v1/${category_slug}/`)
+        .then(response => {
         this.productList = response.data
       }).catch(error => {console.log(error)});
     }

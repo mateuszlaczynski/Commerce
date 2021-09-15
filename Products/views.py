@@ -3,6 +3,7 @@ from .serializers import ProductSerializer, CategorySerializer
 from .models import Product, Category
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from django.http import Http404
 
 class ProductList(APIView):
@@ -33,3 +34,7 @@ class CategoryList(APIView):
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
+
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')

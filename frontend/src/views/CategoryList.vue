@@ -28,9 +28,9 @@ export default {
   },
   methods: {
     getCategoryList() {
-      axios
-      .get('api/v1/categories/')
-      .then(response => {
+        axios
+        .get('api/v1/categories/')
+        .then(response => {
         this.categoryList = response.data
       }).catch(error => {console.log(error)});
     }

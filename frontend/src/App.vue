@@ -6,10 +6,14 @@
       <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
       <button class="nav-item"><router-link to="/about">About</router-link></button>
       <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
+      <button class="nav-item"><a>Koszyk: {{cartTotalLength}}</a></button>
+      
 
 
   </nav>
+
   <div id="container" style="height:100%">
+    
     <router-view/>
   </div>
   <footer id="footer">
@@ -18,6 +22,35 @@
 </div>
 
 </template>
+
+<script>
+import axios from "axios"
+
+export default {
+  data() {
+    return {
+      cart: {
+        items: []
+      }
+    }
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+  },
+  mounted(){
+    this.cart = this.$store.state.cart
+  },
+  computed: {
+    cartTotalLength() {
+      let totalLenght = 0
+      for(let i = 0; i < this.cart.items.length; i++) {
+        totalLenght += this.cart.items[i].quantity
+      }
+      return totalLenght
+    }
+  }
+}
+</script>
 
 <style>
 
@@ -111,4 +144,6 @@ body {
   border-color: gray;
   cursor: default;
 }
+
+
 </style>
