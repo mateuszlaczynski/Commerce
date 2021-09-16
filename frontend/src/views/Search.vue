@@ -20,7 +20,7 @@ export default {
         }
     },
     mounted() {
-        document.title = ''
+        document.title = 'Search Results'
         let uri = window.location.search.substring(1)
         let params = new URLSearchParams(uri)
         if (params.get('query')) {

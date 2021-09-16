@@ -26,6 +26,7 @@ export default {
   },
   mounted() {
     this.getProductList()
+    document.title = "Category"
   },
   methods: {
     getProductList() {

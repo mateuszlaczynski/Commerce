@@ -1,5 +1,6 @@
 <template>
-  <div class="about">
+
+  <div>
     <h1 style="font-size:38px">This is an about page</h1>
     <p style="font-size:22px; margin:50px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
       Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -18,4 +19,15 @@
                    Sed fringilla mauris sit amet nibh. 
                     Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, </p>
   </div>
+
 </template>
+<script>
+
+export default {
+  name: "About",
+  mounted() {
+    document.title = 'About'
+  }
+}
+
+</script>

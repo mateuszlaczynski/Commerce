@@ -33,6 +33,7 @@ import axios from "axios"
         },
         mounted() {
             this.getProduct()
+            document.title = 'Detail'
         },
         methods: {
             getProduct() {

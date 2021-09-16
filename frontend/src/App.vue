@@ -11,6 +11,9 @@
           <input type="text" id="input-bar" placeholder="..." name="query">
           <button type="submit" class="button-input">Search</button>
       </form>
+      <button v-if="$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/log-out">Log out</router-link></button>
+      <button v-if="!$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/log-in">Log in</router-link></button>
+      <button v-if="!$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/sign-up">Sign up</router-link></button>
 
 
   </nav>
@@ -39,6 +42,12 @@ export default {
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = "Token " + token
+    } else {
+      axios.defaults.headers.common['Authorization'] = ""
+    }
   },
   mounted(){
     this.cart = this.$store.state.cart
@@ -140,6 +149,19 @@ body {
   max-height: 300px;
   min-width: 300px;
   min-height: 300px;
+}
+
+.log-box {
+  text-align:center;
+  border: 1px solid black;
+  width: 250px;
+  padding-bottom:20px;
+  border-radius: 10px;
+  margin:auto;
+}
+.log-input {
+  width: 200px;
+  height: 20px;
 }
 
 .button-success {
