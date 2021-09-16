@@ -1,12 +1,12 @@
 <template>
 <div>
   <nav id="nav">
-      <div style="font-size:35px; padding:15px; border-bottom: 1px solid black;"><b>LOREM IPSUM</b></div>
+      <div style="font-size:35px;padding-left:10px; border-bottom: 1px solid black;"><b>LOREM IPSUM</b></div>
       <button class="nav-item"><router-link  to="/">Home</router-link></button>
       <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
       <button class="nav-item"><router-link to="/about">About</router-link></button>
       <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
-      <button class="nav-item"><a>Cart: {{cartTotalLength}}</a></button>
+      <button class="nav-item"><router-link to="/cart">Cart</router-link></button>
       <form id="search-bar" method="get" action="/search">
           <input type="text" id="input-bar" placeholder="..." name="query">
           <button type="submit" class="button-input">Search</button>
@@ -67,7 +67,7 @@ body {
   background-color: #e6e6e6;
   border-bottom: 1px solid black;
   padding-top:20px;
-  padding-bottom:15px;
+  padding-bottom:10px;
 }
 .nav-item {
   padding: 5px;
@@ -109,7 +109,7 @@ body {
   width: 100%;
   text-align:center;
   background-color: darkorange;
-  height:64px;
+  height:67px;
   font-weight: bold;
   font-size:22px;
   text-align: center;
@@ -172,5 +172,15 @@ body {
   cursor: pointer;
 }
 
-
+.button-delete {
+  background-color:red;
+  padding:5px;
+  border: solid 1px #e6e6e6;
+  border-radius: 6px;
+  color: white;
+}
+.button-delete:hover {
+  background-color:lightcoral;
+  cursor: pointer;
+}
 </style>

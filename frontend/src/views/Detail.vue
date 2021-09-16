@@ -12,7 +12,7 @@
             <button v-if="quantity < 10" style="border-left:0px;" class="input-button" @click="quantity++">+</button>
             <button v-else class="input-button" disabled>+</button>
 
-            <label for="quantity"> z 10</label>
+            <label for="quantity"> out of 10</label>
 
             <button @click="addToCart" v-if="quantity >= 1 && quantity <= 10" class="button-success" type="submit">Add To Cart!</button>
             <button v-else class="button-success" disabled>Add to Cart!</button>
@@ -45,7 +45,6 @@ import axios from "axios"
             },
             addToCart() {
                 if (isNaN(this.quantity) || this.quantity <1) {
-                    this.quantity = 1
                 }
 
                 const item = {
@@ -53,6 +52,8 @@ import axios from "axios"
                     quantity: this.quantity,
                 }
                 this.$store.commit('addToCart',item)
+                this.quantity = 1
+                alert("You have added this product to your cart!")
             }
         },
         
