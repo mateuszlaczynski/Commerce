@@ -3,8 +3,8 @@
         <CartItem v-for="item in cart.items"
         :key="item.product.id" :initialItem="item"
         v-on:removeFromCart="removeFromCart"/>
-        <h3>Total price: {{ cartTotalPrice.toFixed(2) }}$</h3>
-        <button @click="removeFromCart(item)" class="button-input" style="padding:12px">Proced to checkout</button>
+        <h3>Total price: {{cartTotalPrice.toFixed(2)}}$</h3>
+        <router-link class="button-input" style="padding:12px;" to="/checkout">Proced to checkout</router-link>
     </div>
     <div v-else>
         <h2 style="text-align:center">Nothing is in the cart!</h2>
