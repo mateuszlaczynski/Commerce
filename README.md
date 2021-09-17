@@ -17,4 +17,16 @@ navigate to frontend directory and then type:
 
 npm run serve
 
-Now you can access this website on port: http://127.0.0.1:8080/
+Now you can access this website on port: 
+
+http://127.0.0.1:8080/
+
+if you want to access admin site you need to type this url in your browser:
+
+http://127.0.0.1:8000/admin
+
+This will open Django's admin panel.
+To log in into this panel you need to use username and password down below:
+
+username: admin
+password: admin
