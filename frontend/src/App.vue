@@ -1,20 +1,46 @@
 <template>
 <div>
-  <nav id="nav">
-      <div style="font-size:35px;padding-left:10px; border-bottom: 1px solid black;"><b>LOREM IPSUM</b></div>
-      <button class="nav-item"><router-link  to="/">Home</router-link></button>
-      <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
-      <button class="nav-item"><router-link to="/about">About</router-link></button>
-      <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
-      <button class="nav-item"><router-link to="/cart">Cart</router-link></button>
-      <form id="search-bar" method="get" action="/search">
-          <input type="text" id="input-bar" placeholder="..." name="query">
-          <button type="submit" class="button-input">Search</button>
-      </form>
-      <button v-if="$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/log-out">Log out</router-link></button>
-      <button v-if="!$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/log-in">Log in</router-link></button>
-      <button v-if="!$store.state.isAuthenticated" style="float:right" class="nav-item"><router-link to="/sign-up">Sign up</router-link></button>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
 
+
+  <nav id="nav">
+
+      <div style="font-size:35px;padding-left:10px; border-bottom: 1px solid black;">
+
+        <b style="font-family: 'Italianno', cursive; letter-spacing:4px; font-size:49px;">Lorem Ipsum</b>
+
+      </div>
+      <div style="padding-left:30px;">
+
+        <button class="nav-item"><router-link  to="/">Home</router-link></button>
+        <button class="nav-item"><router-link to="/contact">Contact us</router-link></button>
+        <button class="nav-item"><router-link to="/about">About</router-link></button>
+        <button class="nav-item"><router-link to="/categories">Categories</router-link></button>
+        <button class="nav-item"><router-link to="/cart">Cart</router-link></button>
+        <b style="font-size:22px; padding-right: 10px;">|</b>
+        <button v-if="$store.state.isAuthenticated" class="nav-item"><router-link to="/log-out">Log out</router-link></button>
+        <button v-if="!$store.state.isAuthenticated" class="nav-item"><router-link to="/log-in">Log in</router-link></button>
+        <button v-if="!$store.state.isAuthenticated"  class="nav-item"><router-link to="/sign-up">Sign up</router-link></button>
+
+  
+        <div style="float:right">
+
+          <form id="search-bar" method="get" action="/search">
+              <input type="text" id="input-bar" placeholder="..." name="query">
+              <button type="submit" class="button-input">Search</button>
+          </form>
+
+        </div>
+
+
+
+      </div>
 
   </nav>
 
@@ -68,6 +94,7 @@ export default {
 
 body {
   margin: 0 !important;
+  font-family: 'Lato', sans-serif;
 }
 
 #nav {
@@ -75,7 +102,6 @@ body {
   width: 100%;
   background-color: #e6e6e6;
   border-bottom: 1px solid black;
-  padding-top:20px;
   padding-bottom:10px;
 }
 .nav-item {
@@ -99,12 +125,12 @@ body {
   color: darkorange;
 }
 #search-bar {
-  float: right;
   padding: 5px;
   margin-right:25px;
   margin-top: 10px;
   display:inline-block;
 }
+
 #input-bar {
   width:175px;
   height: 20px;
