@@ -10,28 +10,57 @@
                         x{{item.quantity}}
                     </p>
             </div>
-            <hr>
-            Total: {{cartTotalPrice.toFixed(2)}}$
+            
+            <p>Total: {{cartTotalPrice.toFixed(2)}}$</p>
         </b>
+        <hr>
+        <h2>Delivery Information</h2>
                 <form @submit.prevent="submitForm">
-                    <h3>First name:</h3>
-                    <input class="log-input" type="text" v-model="first_name">
-                    <h3>Last name:</h3>
-                     <input class="log-input" type="text" v-model="last_name">
-                     <h3>E-mail:</h3>
-                      <input class="log-input" type="email" v-model="email">
-                      <h3>Phone number:</h3>
-                      <input class="log-input" type="tel" pattern="[0-9]{9}" v-model="phone">
-                      <h3>Adress:</h3>
-                      <input class="log-input" type="text" v-model="address">
-                      <h3>Zipcode:</h3>
-                      <input class="log-input" type="text" v-model="zipcode">
-                      <h3>Place:</h3>
-                      <input class="log-input" type="text" v-model="place">
+
+                    <div class="checkout">
+                        <label>First name:</label>
+                        <input class="checkout-input" type="text" v-model="first_name">
+                    </div>
+
+                    <div class="checkout">
+                        <label>Last name:</label>
+                        <input class="checkout-input" type="text" v-model="last_name">
+                     </div>
+                    <br>
+                    <div class="checkout">
+                        <label>E-mail:</label>
+                        <input class="checkout-input" type="email" v-model="email">
+                    </div>
+
+                    <div class="checkout">
+                        <label>Phone number:</label>
+                        <input class="checkout-input" type="tel" pattern="[0-9]{9}" v-model="phone">
+                    </div>
+                    <br>
+                    <div class="checkout">
+                         <label>Adress:</label>
+                         <input class="checkout-input" type="text" v-model="address">
+                    </div>
+
+                    <div class="checkout">
+                        <label>Zipcode:</label>
+                         <input class="checkout-input" type="text" v-model="zipcode">
+                    </div>
+                    <br>                        
+                    <div class="checkout">
+                        <label>Place:</label>
+                        <input class="checkout-input" type="text" v-model="place">
+                    </div>
+
+
+                    <br>
                       <button @click="submitForm()" class="button-input" style="margin-top:20px; width: 210px; height:30px">Submit</button>
+            
+            
             <div v-if="errors.length">
                 <b><p class="error-text" v-for="error in errors" :key="error">{{error}}</p></b>
             </div>
+
             </form>
     </div>
 
@@ -150,3 +179,20 @@ export default {
 }
 
 </script>
+
+<style>
+
+.checkout {
+    display: inline;
+    padding:10px;
+    margin:10px;
+
+}
+.checkout-input {
+    width: 30%;
+    border-radius:8px;
+    height:26px;
+    margin: 8px;
+}
+
+</style>
