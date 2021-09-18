@@ -4,9 +4,11 @@
         <img class="cart-thumbnail" :src="item.product.get_image">
         <h3><router-link :to="item.product.get_absolute_url">{{item.product.name}}</router-link></h3>
         <b>Quantity: 
-            <a class="pm" @click="incrementQuantity(item)">-</a> 
+
+            <button class="pm" @click="decrementQuantity(item)">-</button> 
             {{item.quantity}}
-            <a class="pm" @click="decrementQuantity(item)">+</a>
+            <button class="pm" @click="incrementQuantity(item)">+</button>
+
         </b>
         <p>{{getPrice(item).toFixed(2)}}$ 
             <button @click="removeFromCart(item)" class="button-delete" style="float: right">Delete</button>
@@ -34,17 +36,18 @@ export default {
         },
         incrementQuantity(item) {
             item.quantity++
+
+            this.updateCart()
+        },
+        decrementQuantity(item) {
+            item.quantity--
             if (item.quantity === 0) {
                 this.$emit('removeFromCart', item)
             }
             this.updateCart()
         },
-        decrementQuantity(item) {
-            item.quantity--
-            this.updateCart()
-        },
         updateCart(){
-            localStorage.setItem('cart', JSON.stringify(this.state.cart))
+            localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
         },
         removeFromCart(item) {
             this.$emit('removeFromCart', item)
@@ -72,8 +75,12 @@ a:hover {
 }
 
 .pm {
+    padding:5px;
+    border:none;
+}
+.pm:hover {
     cursor:pointer;
-    padding:5px
+    background-color:lightgray;
 }
 
 </style>

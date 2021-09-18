@@ -171,10 +171,10 @@ body {
   cursor: pointer;
 }
 .card-image {
-  max-width: 300px;
-  max-height: 300px;
-  min-width: 300px;
-  min-height: 300px;
+  max-width: 350px;
+  max-height: 250px;
+  min-width: 350px;
+  min-height: 250px;
 }
 
 .log-box {

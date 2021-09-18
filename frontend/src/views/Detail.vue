@@ -6,9 +6,12 @@
         <h2>{{product.name}} {{product.price}}$</h2>
         <p style="margin:5%; text-align:justify">{{product.description}}</p>
         <div style="text-align:center">
+            
             <button v-if="quantity > 1" style="border-right:0px;" class="input-button" @click="quantity--">-</button>
-            <button v-else class="input-button" disabled>-</button>                    
+            <button v-else class="input-button" disabled>-</button>      
+
             <input type="number" id="quantity" name="quantity" min="1" max="10" :value="quantity">
+
             <button v-if="quantity < 10" style="border-left:0px;" class="input-button" @click="quantity++">+</button>
             <button v-else class="input-button" disabled>+</button>
 
@@ -96,9 +99,11 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: default;
 }
 #section-image {
-    max-width: 50%;
     margin:2px;
-    max-height: 35%;
+    max-width: 600px;
+    min-width: 600px;
+    max-height: 400px;
+    min-height: 400px;
     padding:20px;
     float: left;
 }
