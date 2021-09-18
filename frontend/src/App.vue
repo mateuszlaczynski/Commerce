@@ -184,6 +184,7 @@ body {
   padding-bottom:20px;
   border-radius: 10px;
   margin:auto;
+  background-color: #e6e6e6;
 }
 .log-input {
   width: 200px;
